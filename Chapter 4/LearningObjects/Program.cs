@@ -16,9 +16,28 @@ namespace LearningObjects
             Employee saitStudent = myApp.CreateStudentProgrammer(21000);
 
             myApp.CompareSalary(saitStudent, bossesNephew);
+
+            myApp.ApplyRaise(headProgrammer);
+
+            Console.WriteLine(headProgrammer.ToString());
+            Console.WriteLine(25.ToString());
         }
 
+        private void ApplyRaise(Employee someone)
+        {
+            //Ask user for a raise amount
+            Console.Write("Enter a raise amount (2-10): ");
+            double raise = double.Parse(Console.ReadLine());
+            while (raise < 2 || raise > 10)
+            {
+                Console.WriteLine("Not a valid number.");
+                Console.WriteLine("Enter a raise amount (2-10): ");
+                raise = double.Parse(Console.ReadLine());
+            }
 
+            raise = raise / 100;
+            someone.AssignBonus(raise);
+        }
 
         private void CompareSalary(Employee personA, Employee personB)
         {

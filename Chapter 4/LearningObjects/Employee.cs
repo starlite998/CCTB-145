@@ -35,5 +35,18 @@ namespace LearningObjects
             PhoneNumber = phone;
 
         }
+
+        //Method to assign an increase to the salary
+        public void AssignBonus(double increasePercentage)
+        {
+            Salary += Salary * increasePercentage;
+            //exactly the same as...
+            //Salary = Salary + (Salary * increasePercentage)
+        }
+
+        public override string ToString()
+        {
+            return Name + " earns $ " + Salary + " and started on " + StartingDate.ToShortDateString();
+        }
     }
 }   
